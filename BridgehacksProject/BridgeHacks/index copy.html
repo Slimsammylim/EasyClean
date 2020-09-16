@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>
+        Bridgehacks stuff
+    </title>
+        
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Notable&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+    
+</head> 
+
+<body>
+    <div class="top">
+        <img width="100%" src="https://media.discordapp.net/attachments/733844580386209873/734326666507190292/Hackathon_Web_Banner.png">
+        <HR class="hr1" COLOR="black" NOSHADE ALIGN="LEFT">
+        <div class="topnav">        
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>    
+        </div>
+    </div>
+
+    <HR class="hr1" COLOR="black" NOSHADE ALIGN="LEFT">
+<div class = bigbody>
+    <div class="lorem"> 
+        <h2 height="20em">Features</h2>   
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+    </br>
+    <div class="map" id="mapdiv"></div>
+
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script>
+      map = new OpenLayers.Map("mapdiv");
+      map.addLayer(new OpenLayers.Layer.OSM());
+  
+      var lonLat = new OpenLayers.LonLat(-121.899574, 37.432335)
+            .transform(
+              new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+              map.getProjectionObject() // to Spherical Mercator Projection
+            );
+
+      var lonLat2 = new OpenLayers.LonLat(-71.0589, 42.3601)
+            .transform(
+              new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+              map.getProjectionObject() // to Spherical Mercator Projection
+            );
+
+
+      var zoom=13;
+  
+      var markers = new OpenLayers.Layer.Markers( "Markers" );
+      map.addLayer(markers);
+      
+      markers.addMarker(new OpenLayers.Marker(lonLat));
+      markers.addMarker(new OpenLayers.Marker(lonLat2));
+
+      map.setCenter (lonLat2, zoom);
+
+
+    </script>
+    </div> 
+
+</body>
+</html>
